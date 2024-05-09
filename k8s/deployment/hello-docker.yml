@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-docker
+  labels:
+    app: hello-docker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-docker
+  template:
+    metadata:
+      labels:
+        app: hello-docker
+    spec:
+      containers:
+      - name: hello-docker
+        image: russojrv/cplusplus:1.0.0
+        imagePullPolicy: Always
